@@ -8,10 +8,14 @@ const tasks = ref([
 ]);
 
 const tascaNova = ref('');
+const mostrarPendents = ref(false);
 
 const tasquesTotal = computed(() => tasks.value.length);
 const tasquesCompletades = computed(() => tasks.value.filter(task => task.completed).length);
 const tasquesPendents = computed(() => tasks.value.filter(task => !task.completed).length);
+const tasquesVisibles = computed(() =>
+  mostrarPendents.value ? tasks.value.filter(task => !task.completed) : tasks.value
+);
 
 const canviarEstatTasca = (task) => {
   task.completed = !task.completed;
@@ -36,9 +40,12 @@ const afegirTasca = () => {
   <p>Afegir una nova tasca:</p>
   <input v-model="tascaNova" type="text">
   <button v-on:click="afegirTasca">Afegir</button>
-  <button v-on:click="mostrarPendents">Mostrar només pendents</button>
+  <label>
+    <input v-model="mostrarPendents" type="checkbox">
+    Mostrar només pendents
+  </label>
   <ul>
-    <li v-for="task in tasks" :key="task.id">
+    <li v-for="task in tasquesVisibles" :key="task.id">
       {{ task.nom }} - {{ task.completed ? 'Completada' : 'Pendent' }}
       <button v-on:click="canviarEstatTasca(task)">
         {{ task.completed ? 'Marcar com a pendent' : 'Marcar com a completada' }}

@@ -1,0 +1,57 @@
+body {
+  background: #BFBFBF;
+  color: #24312b;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+input:not([type='checkbox']) {
+  width: min(100%, 26rem);
+  padding: 9px 11px;
+  border: 1px solid #cbd5ce;
+  border-radius: 5px;
+  font: inherit;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+input[type='checkbox'] {
+  accent-color: #564256;
+}
+
+button {
+  margin: 0 6px 6px 0;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 5px;
+  background: #564256;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3d2f3d;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid #dce5de;
+  border-radius: 5px;
+  background: #fff;
+}
+
+p {
+    color: black;
+}
