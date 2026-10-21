@@ -46,7 +46,8 @@ const afegirTasca = () => {
   </label>
   <ul>
     <li v-for="task in tasquesVisibles" :key="task.id">
-      {{ task.nom }} - {{ task.completed ? 'Completada' : 'Pendent' }}
+      <p v-if="task.completed">{{ task.nom }} - Completada</p>
+      <p v-else="!task.completed">{{ task.nom }} - Pendent</p>
       <button v-on:click="canviarEstatTasca(task)">
         {{ task.completed ? 'Marcar com a pendent' : 'Marcar com a completada' }}
       </button>
